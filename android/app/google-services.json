@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "216819598852",
+    "project_id": "flower-decorators",
+    "storage_bucket": "flower-decorators.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216819598852:android:b528eed4ca14220dca1751",
+        "android_client_info": {
+          "package_name": "com.rishi.flowerdecorations"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "216819598852-ruffv5p9nqt9mttrj5748scqq3jk49v0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvmDzmkbYQPDYAdAwV-iKfmu10ks3y4P4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "216819598852-ruffv5p9nqt9mttrj5748scqq3jk49v0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
