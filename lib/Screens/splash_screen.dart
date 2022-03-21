@@ -62,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ImageStrings.splashLogo,
                   width: 350.w,
                   height: 300.h,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
 

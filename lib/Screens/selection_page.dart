@@ -90,6 +90,8 @@ class _SelectionPageState extends State<SelectionPage> {
 
           buildDescription(occasion, occasionImg),
 
+          buildAppBar(),
+
           Container(
             alignment: Alignment.center,
             padding: EdgeInsets.only(top: 290.h),
@@ -174,11 +176,11 @@ class _SelectionPageState extends State<SelectionPage> {
           Visibility(
               visible: selectedItems.isNotEmpty,
               child: Padding(
-                padding: EdgeInsets.only(top: 550.h),
+                padding: EdgeInsets.only(top: 560.h),
                 child: Align(
                   alignment: Alignment.center,
                   child: SizedBox(
-                    height: 50.h,
+                    height: 60.h,
                     width: 330.w,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -189,17 +191,32 @@ class _SelectionPageState extends State<SelectionPage> {
                         ),
                         elevation: 10.sp,
                       ),
-                      onPressed: (){},
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                      onPressed: (){
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TransactionPage(),
+                            settings: RouteSettings(
+                              arguments: SelectedItems(selectedItems: selectedItems, noOfItems: selectedItems.length, total: counter.totalPay, occasion: occasion)
+                            )
+                          )
+                        );
+                      },
+                      child: Stack(
+
                         children: <Widget>[
 
                           titleUI(15.w, 0.h, 14.sp, 3.sp, 'Items Selected: ${selectedItems.length}'),
 
-                          titleUI(15.w, 0.h, 14.sp, 3.sp, 'Rs.${counter.totalPay}'),
+                          titleUI(15.w, 20.h, 14.sp, 3.sp, 'Rs.${counter.totalPay}'),
 
-                          //Text('Items Selected: ${selectedItems.length}'),
+                          Padding(
+                            padding: EdgeInsets.only(left: 260.w,top: 8.h),
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.pink,
+                            ),
+                          ),
 
                         ],
                       ),
@@ -244,131 +261,24 @@ class _SelectionPageState extends State<SelectionPage> {
     );
   }
 
-  // List<Map<String, dynamic>> occasionSelection(
-  //     ImageDataInfo imageData, String occasion) {
-  //   List<Map<String, dynamic>> redirectList = [];
-  //
-  //   switch (occasion) {
-  //     case 'Wedding':
-  //       {
-  //         redirectList = imageData.wedding();
-  //       }
-  //       break;
-  //
-  //     case 'Religious Occasions':
-  //       {
-  //         redirectList = imageData.religiousOccasion();
-  //       }
-  //       break;
-  //
-  //     case 'Home Occasions':
-  //       {
-  //         redirectList = imageData.homeOccasion();
-  //       }
-  //       break;
-  //
-  //     case 'Baby Shower':
-  //       {
-  //         redirectList = imageData.babyShower();
-  //       }
-  //       break;
-  //
-  //     case 'Cars':
-  //       {
-  //         redirectList = imageData.cars();
-  //       }
-  //       break;
-  //
-  //     default:
-  //       {
-  //         redirectList = imageData.others();
-  //       }
-  //   }
-  //   return redirectList;
-  // }
-
-  ///ListView with map
-  // ListView(
-  // scrollDirection: Axis.vertical,
-  // children: imageList.map((item) {
-  // final isSelected = widget.selectedItems.contains(item);
-  // return ImageBuilder(
-  // data: item,
-  // isSelected: isSelected,
-  // onSelected: onSelected,
-  // );
-  // }).toList(),
-  // ),
-
-  ///ListView.builder
-  // ListView.builder(
-  // scrollDirection: Axis.vertical,
-  // itemCount: imageList.length,
-  // itemBuilder: (context, index) {
-  // return SizedBox(
-  // height: 350.h,
-  // child: Card(
-  // child: Theme(
-  // data: ThemeData(fontFamily: 'Ubuntu'),
-  // child: ListTile(
-  // title: Stack(
-  // children: <Widget>[
-  // Padding(
-  // padding: EdgeInsets.only(top: 10.h),
-  // child: Container(
-  // height: 200.h,
-  // decoration: BoxDecoration(
-  // border: Border.all(
-  // color: Colors.black, width: 2.sp),
-  // image: DecorationImage(
-  // image: AssetImage(
-  // imageList[index]['url']),
-  // fit: BoxFit.fitHeight)),
-  // ),
-  // ),
-  //
-  // Padding(
-  // padding:EdgeInsets.only(left: 10.w,top: 220.h),
-  // child: Text(
-  // imageList[index]['title'],
-  // style: TextStyle(
-  // fontSize: 18.sp,
-  // fontWeight: FontWeight.bold
-  // ),
-  // ),
-  // )
-  // ],
-  // ),
-  // subtitle: Stack(
-  // children: <Widget>[
-  //
-  // Padding(
-  // padding: EdgeInsets.only(top: 10.h,left: 10.w),
-  // child: Text(imageList[index]['description']),
-  // ),
-  //
-  // Padding(
-  // padding: EdgeInsets.only(top: 50.h,left: 220.w),
-  // child: ElevatedButton.icon(
-  // onPressed: (){
-  // final isSelected  = selectedItems.contains(imageList[index]);
-  // debugPrint(isSelected.toString());
-  // setState(() {
-  // isSelected ? selectedItems.remove(imageList[index]) : selectedItems.add(imageList[index]);
-  // debugPrint(selectedItems.toString());
-  // });
-  // },
-  // icon: ProjectIcons.addIcon,
-  // label: Text(Strings.add)
-  // ),
-  // ),
-  // ],
-  // ),
-  // )
-  // ),
-  // ),
-  // );
-  // }),
+  Widget buildAppBar() {
+    return AppBar(
+      backgroundColor: Colors.transparent,
+      automaticallyImplyLeading: false,
+      elevation: 0.0,
+      leading: Padding(
+        padding: EdgeInsets.only(left: 10.w),
+        child: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: ProjectIcons.popIcon,
+          //color: ProjectColors.loginRegisterButton,
+          iconSize: 30.sp,
+        ),
+      ),
+    );
+  }
 
   void onSelected(item, PayLogic counter) {
     final isSelected = selectedItems.contains(item);

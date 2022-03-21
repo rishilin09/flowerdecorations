@@ -12,7 +12,7 @@ class OccasionImgTitle {
   static String bs_1title = 'Swing Design-1';
   static String bs_2title = 'Accessories Design-1';
   static String bs_3title = 'Swing Design-2';
-  static String bs_4title = 'Swing Design-3 with Accessories';
+  static String bs_4title = 'Swing Design-3';
   static String bs_5title = 'Accessories Design-2';
   static String bs_6title = 'Swing Design-1';
   static String c_1title = 'Car Design-1';

@@ -172,14 +172,22 @@ class _DetailsPageState extends State<DetailsPage> {
             RepaintBoundary(
               key: _key,
 
-              ///This function will create QRCode image.
-              child: QrImage(
-                data: qrcode,
-                version: QrVersions.auto,
-                size: 150.sp,
-                gapless: true,
-                backgroundColor: Colors.white,
+              child: BarcodeWidget(
+                  data: qrcode,
+                  barcode: Barcode.qrCode(
+                      errorCorrectLevel: BarcodeQRCorrectionLevel.high
+                  ),
+                  width: 150.sp,
+                  height: 150.sp,
               ),
+              ///This function will create QRCode image.
+              // child: QrImage(
+              //   data: qrcode,
+              //   version: QrVersions.auto,
+              //   size: 150.sp,
+              //   gapless: true,
+              //   backgroundColor: Colors.white,
+              // ),
             ),
 
             ///Your Barcode Text

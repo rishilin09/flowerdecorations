@@ -1,21 +1,22 @@
 // ignore_for_file: use_key_in_widget_constructors
 
-import 'package:flowerdecorations/Shared_Widgets/titleUI.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../config/styling.dart';
+import 'package:flowerdecorations/project_imports.dart';
 
 class TransactionPage extends StatelessWidget {
 
   final List<Map<String, dynamic>> paymentMethods = [
     {'method': 'Net Banking', 'image': ImageStrings.netBanking},
-    {'method': 'Debit or Credit cards', 'image': ImageStrings.card},
+    {'method': 'Debit card', 'image': ImageStrings.card},
     {'method': 'UPI', 'image': ImageStrings.upi},
     {'method': 'Cash', 'image': ImageStrings.cash},
   ];
 
   @override
   Widget build(BuildContext context) {
+
+    final items = ModalRoute.of(context)!.settings.arguments as SelectedItems;
+    final total = items.total;
+
     return Scaffold(
       body: Container(
         width: ScreenUtil().screenWidth,
@@ -32,13 +33,40 @@ class TransactionPage extends StatelessWidget {
 
             titleUI(159.w, 51.h, 25.sp, 4.sp, Strings.pay),
 
-            titleUI(134.w, 100.h, 36.sp, 4.sp, 'Rs 20'),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: EdgeInsets.only(top: 100.h),//EdgeInsets.fromLTRB(l,t,r,b),
+                child: Stack(
+                    children: [
+                      Text(
+                        'Rs.$total',
+                        style: TextStyle(
+                            fontSize: 36.sp,
+                            foreground: Paint()
+                              ..style = PaintingStyle.stroke
+                              ..strokeWidth = 4
+                              ..color = Colors.black
+                        ),
+                      ),
+
+                      Text(
+                        'Rs.$total',
+                        style: TextStyle(
+                            fontSize: 36.sp,
+                            color: Colors.white
+                        ),
+                      ),
+                    ]
+                ),
+              ),
+            ),
             
             titleUI(17.w, 176.h, 18.sp, 4.sp, Strings.selectPayMethod),
 
             buildAppBar(context),
 
-            payMethod(),
+            payMethod(items),
 
           ],
         ),
@@ -46,7 +74,7 @@ class TransactionPage extends StatelessWidget {
     );
   }
 
- Widget payMethod() {
+ Widget payMethod(SelectedItems items) {
    return Container(
      alignment: Alignment.center,
      //color: Colors.transparent.withOpacity(0.5),
@@ -68,9 +96,23 @@ class TransactionPage extends StatelessWidget {
                  child: ListTile(
 
                    contentPadding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 15.h),
-                   onTap: () {},
+                   onTap: () {
+                     debugPrint(items.selectedItems.toString());
+                     Navigator.pushReplacement(
+                         context,
+                         MaterialPageRoute(
+                             builder: (context) => FinalPage(),
+                             settings: RouteSettings(
+                                 arguments: [items, paymentMethods[index]['method']]
+                             )
+                         )
+                     );
+                   },
                    title: Text(
-                       paymentMethods[index]['method']
+                     paymentMethods[index]['method'],
+                     style: TextStyle(
+                       fontSize: 16.sp
+                     ),
                    ),
                    leading: Container(
                      width: 60.w,

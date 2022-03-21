@@ -1,16 +1,10 @@
 
 
-import 'dart:core';
-
 import 'package:flowerdecorations/Shared_Widgets/image_info.dart';
 
 class ImageDataInfo {
 
   List<Map<String,dynamic>> files = [];
-
-  // 'description': OccasionImgDescription.w_,
-  // 'price': OccasionImgPrice.w_price,
-  // 'url': OccasionImgUrl.w_url
 
   List<Map<String,dynamic>> wedding() {
 

@@ -21,6 +21,7 @@ class ImageStrings {
 
   static String splashLogo = 'assets/SVG/SplashScreenLogo.svg';
   static String confirmedImg = 'assets/SVG/confirmed.svg';
+
   static String splashBG = 'assets/JPG/Splash_Screen_BG.jpg';
   static String loginBG = 'assets/JPG/Login_Page_BG.jpg';
   static String registerBG = 'assets/JPG/Register_Page_BG.jpg';
@@ -29,6 +30,7 @@ class ImageStrings {
   static String finalBG = 'assets/JPG/Final_Page_BG.jpg';
   static String cash = 'assets/PNG/cash.png';
   static String card = 'assets/PNG/card.png';
+  static String invoiceImg = 'assets/PNG/flowerUI.png';
   static String netBanking = 'assets/PNG/net-banking.png';
   static String upi = 'assets/PNG/upi.png';
   static String wedding = 'assets/PNG/wedding.png';
@@ -44,6 +46,7 @@ class ImageStrings {
 class Strings {
   Strings._();
 
+  static String title = 'Flower Decorations';
   static String flower = 'Flower';
   static String decoration = 'Decorations';
   static String login = 'Login';
