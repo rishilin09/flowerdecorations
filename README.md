@@ -14,10 +14,7 @@ This project is been divided within **lib** folder as
     - config
     - Models
     - Screens
-        - Authentication
-        - Home
     - Services
-        - Invoice
     - SharedWidgets
 
 1. **config :-** It contains all the styling elements which will be needed into application
@@ -25,9 +22,6 @@ This project is been divided within **lib** folder as
 3. **Screens :-** It contains dart files which will displaying screens for the application
 4. **Services :-** It contains all the services which will be used with the application
 5. **SharedWidgets :-** It contains widgets which will be used in more than one file
-6. **Authentication :-** It contains files related to authentication i.e Login and Register
-7. **Home :-** It contains files related to Home page
-8. **Invoice :-** It contains invoice generating files
 
 - **projectImports.dart** file will contain all the necessary importing files which will be required throughout the
   project. Rather than importing same package everytime in different file, **projectImports.dart** file will get
