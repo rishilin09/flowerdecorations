@@ -1,22 +1,18 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors_in_immutables
 
-
 import 'package:flowerdecorations/project_imports.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
 class RegisterPage extends StatefulWidget {
-
   final Function toggleView;
 
   RegisterPage({required this.toggleView});
-
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-
   ///Declarations and Initializations
   final AuthService _auth = AuthService();
   final _formkey = GlobalKey<FormState>();
@@ -31,32 +27,33 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    return loading ? Loading() : Scaffold(
-      body: Container(
-        width: ScreenUtil().screenWidth,
-        height: ScreenUtil().screenHeight,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.5), BlendMode.srcOver),
-                image: AssetImage(ImageStrings.registerBG))),
-        child: SingleChildScrollView(
-          child: Stack(
-            children: <Widget>[
-              titleUI(31.w, 83.h, 36.sp, 4.sp, Strings.register),
-              Form(key: _formkey, child: registerBuild()),
-            ],
-          ),
-        ),
-      ),
-    );
+    return loading
+        ? Loading()
+        : Scaffold(
+            body: Container(
+              width: ScreenUtil().screenWidth,
+              height: ScreenUtil().screenHeight,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      colorFilter: ColorFilter.mode(
+                          Colors.black.withOpacity(0.5), BlendMode.srcOver),
+                      image: AssetImage(ImageStrings.registerBG))),
+              child: SingleChildScrollView(
+                child: Stack(
+                  children: <Widget>[
+                    titleUI(31.w, 83.h, 36.sp, 4.sp, Strings.register),
+                    Form(key: _formkey, child: registerBuild()),
+                  ],
+                ),
+              ),
+            ),
+          );
   }
 
   Widget registerBuild() {
     return Stack(
       children: <Widget>[
-
         ///FullName TextFormField
         Padding(
           padding: EdgeInsets.only(top: 165.h, left: 30.w, right: 30.w),
@@ -72,8 +69,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       foreground: Paint()
                         ..style = PaintingStyle.stroke
                         ..strokeWidth = 1.sp
-                        ..color = ProjectColors.toggleColor
-                  )),
+                        ..color = ProjectColors.toggleColor)),
               validator: RequiredValidator(errorText: Strings.rFullName),
               onChanged: (val) {
                 setState(() => fullName = val);
@@ -97,8 +93,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       foreground: Paint()
                         ..style = PaintingStyle.stroke
                         ..strokeWidth = 1.sp
-                        ..color = ProjectColors.toggleColor
-                  )),
+                        ..color = ProjectColors.toggleColor)),
               validator: MultiValidator([
                 RequiredValidator(errorText: Strings.rEmail),
                 EmailValidator(errorText: Strings.eEmail),
@@ -135,8 +130,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       foreground: Paint()
                         ..style = PaintingStyle.stroke
                         ..strokeWidth = 1.sp
-                        ..color = ProjectColors.toggleColor
-                  )),
+                        ..color = ProjectColors.toggleColor)),
               validator: MultiValidator([
                 RequiredValidator(errorText: Strings.rPassword),
                 LengthRangeValidator(
@@ -165,8 +159,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     foreground: Paint()
                       ..style = PaintingStyle.stroke
                       ..strokeWidth = 1.sp
-                      ..color = ProjectColors.toggleColor
-                ),
+                      ..color = ProjectColors.toggleColor),
               ),
               keyboardType: TextInputType.number,
               validator: MultiValidator([
@@ -218,28 +211,22 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             child: TextButton(
               onPressed: () => widget.toggleView(),
-              child: Stack(
-                  children: [
-                    Text(
-                      Strings.signIn,
-                      style: TextStyle(
-                          fontSize: 16.sp,
-                          foreground: Paint()
-                            ..style = PaintingStyle.stroke
-                            ..strokeWidth = 1.sp
-                            ..color = Colors.black
-                      ),
-                    ),
-
-                    Text(
-                      Strings.signIn,
-                      style: TextStyle(
-                          fontSize: 16.sp,
-                          color: ProjectColors.toggleColor
-                      ),
-                    ),
-                  ]
-              ),
+              child: Stack(children: [
+                Text(
+                  Strings.signIn,
+                  style: TextStyle(
+                      fontSize: 16.sp,
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 1.sp
+                        ..color = Colors.black),
+                ),
+                Text(
+                  Strings.signIn,
+                  style: TextStyle(
+                      fontSize: 16.sp, color: ProjectColors.toggleColor),
+                ),
+              ]),
             ),
           ),
         ),
@@ -262,5 +249,4 @@ class _RegisterPageState extends State<RegisterPage> {
       }
     }
   }
-
 }

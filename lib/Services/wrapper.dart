@@ -3,7 +3,6 @@
 import 'package:flowerdecorations/project_imports.dart';
 
 class Wrapper extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserUID?>(context);

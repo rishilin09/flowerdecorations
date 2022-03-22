@@ -17,6 +17,7 @@ export 'package:flowerdecorations/Screens/final_page.dart';
 export 'package:flowerdecorations/Screens/home_page.dart';
 export 'package:flowerdecorations/Screens/login_page.dart';
 export 'package:flowerdecorations/Screens/register_page.dart';
+export 'package:flowerdecorations/Screens/selection_page.dart';
 export 'package:flowerdecorations/Screens/splash_screen.dart';
 export 'package:flowerdecorations/Screens/transaction_page.dart';
 export 'package:flowerdecorations/Services/auth.dart';
@@ -27,6 +28,7 @@ export 'package:flowerdecorations/Services/pdf_api.dart';
 export 'package:flowerdecorations/Services/pdf_invoice.dart';
 export 'package:flowerdecorations/Services/qr_processing.dart';
 export 'package:flowerdecorations/Services/wrapper.dart';
+export 'package:flowerdecorations/Shared_Widgets/image_data.dart';
 export 'package:flowerdecorations/Shared_Widgets/loading.dart';
 export 'package:flowerdecorations/Shared_Widgets/titleUI.dart';
 export 'package:flowerdecorations/Shared_Widgets/textFormFieldUI.dart';
@@ -36,6 +38,8 @@ export 'package:flutter/services.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:flutter_spinkit/flutter_spinkit.dart';
 export 'package:flutter_svg/flutter_svg.dart';
+export 'package:open_file/open_file.dart';
+export 'package:path_provider/path_provider.dart';
 export 'package:provider/provider.dart';
 
 

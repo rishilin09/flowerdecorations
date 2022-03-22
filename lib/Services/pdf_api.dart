@@ -1,5 +1,3 @@
-import 'package:open_file/open_file.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:pdf/widgets.dart';
 import 'package:flowerdecorations/project_imports.dart';
 
@@ -15,11 +13,8 @@ class PdfApi {
     final bytes = await pdf.save();
 
     Directory? dir = await getExternalStorageDirectory();
+
     ///print(dir); ==> '/storage/emulated/0/Android/data/com.rishi.flowerdecorations/files'
-    /*Directory filePath = Directory(path(dir!));
-    print(filePath);
-    await filePath.create(recursive: true);
-    final file = File('${filePath.path}/$name');*/
     final file = File('${dir!.path}/$name');
     await file.writeAsBytes(bytes);
     return file;
@@ -31,8 +26,4 @@ class PdfApi {
     final url = file.path;
     await OpenFile.open(url);
   }
-
-
-
-
 }

@@ -2,42 +2,34 @@
 
 import 'package:flowerdecorations/project_imports.dart';
 
-
 class SelectionProvider extends StatelessWidget {
-
   SelectionProvider({required this.items});
 
-  final List<Map<String,dynamic>> items;
+  final List<Map<String, dynamic>> items;
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => PayLogic(),
+      create: (context) => PayLogic(),
       child: SelectionPage(items: items),
     );
   }
 }
 
-
 class SelectionPage extends StatefulWidget {
-
   SelectionPage({required this.items});
 
-  final List<Map<String,dynamic>> items;
+  final List<Map<String, dynamic>> items;
 
   @override
   State<SelectionPage> createState() => _SelectionPageState();
 }
 
 class _SelectionPageState extends State<SelectionPage> {
-
   List<Map<String, dynamic>> selectedItems = [];
-
-
 
   @override
   Widget build(BuildContext context) {
-
     final selection =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final counter = Provider.of<PayLogic>(context);
@@ -87,16 +79,12 @@ class _SelectionPageState extends State<SelectionPage> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-
           buildDescription(occasion, occasionImg),
-
           buildAppBar(),
-
           Container(
             alignment: Alignment.center,
             padding: EdgeInsets.only(top: 290.h),
             child: ListView.builder(
-
                 scrollDirection: Axis.vertical,
                 itemCount: imageList.length,
                 itemBuilder: (context, index) {
@@ -107,7 +95,6 @@ class _SelectionPageState extends State<SelectionPage> {
                       child: Theme(
                           data: ThemeData(fontFamily: 'Ubuntu'),
                           child: ListTile(
-
                             title: Stack(
                               children: <Widget>[
                                 Padding(
@@ -143,27 +130,34 @@ class _SelectionPageState extends State<SelectionPage> {
                                   child: Text(imageList[index]['description']),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(top: 60.h,left: 180.w),
+                                  padding:
+                                      EdgeInsets.only(top: 60.h, left: 180.w),
                                   child: SizedBox(
                                     height: 40.h,
                                     width: 120.w,
                                     child: ElevatedButton.icon(
-                                        onPressed: () => onSelected(imageList[index],counter),
-                                        icon: isSelected ? ProjectIcons.removeIcon : ProjectIcons.addIcon,
-                                        label: isSelected ? Text(Strings.remove) : Text(Strings.add),
+                                      onPressed: () =>
+                                          onSelected(imageList[index], counter),
+                                      icon: isSelected
+                                          ? ProjectIcons.removeIcon
+                                          : ProjectIcons.addIcon,
+                                      label: isSelected
+                                          ? Text(Strings.remove)
+                                          : Text(Strings.add),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                    padding: EdgeInsets.only(top: 70.h,left: 10.w),
-                                    child: Text(
-                                      'Rs.${imageList[index]['price']}',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.sp,
-                                        color: ProjectColors.toggleColor,
-                                      ),
+                                  padding:
+                                      EdgeInsets.only(top: 70.h, left: 10.w),
+                                  child: Text(
+                                    'Rs.${imageList[index]['price']}',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.sp,
+                                      color: ProjectColors.toggleColor,
                                     ),
+                                  ),
                                 )
                               ],
                             ),
@@ -172,7 +166,6 @@ class _SelectionPageState extends State<SelectionPage> {
                   );
                 }),
           ),
-
           Visibility(
               visible: selectedItems.isNotEmpty,
               child: Padding(
@@ -185,47 +178,44 @@ class _SelectionPageState extends State<SelectionPage> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         primary: Colors.orange.shade300,
-                        side: BorderSide(width: 5.sp,color: Colors.pink),
+                        side: BorderSide(width: 5.sp, color: Colors.pink),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20.sp)),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20.sp)),
                         ),
                         elevation: 10.sp,
                       ),
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => TransactionPage(),
-                            settings: RouteSettings(
-                              arguments: SelectedItems(selectedItems: selectedItems, noOfItems: selectedItems.length, total: counter.totalPay, occasion: occasion)
-                            )
-                          )
-                        );
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TransactionPage(),
+                                settings: RouteSettings(
+                                    arguments: SelectedItems(
+                                        selectedItems: selectedItems,
+                                        noOfItems: selectedItems.length,
+                                        total: counter.totalPay,
+                                        occasion: occasion))));
                       },
                       child: Stack(
-
                         children: <Widget>[
-
-                          titleUI(15.w, 0.h, 14.sp, 3.sp, 'Items Selected: ${selectedItems.length}'),
-
-                          titleUI(15.w, 20.h, 14.sp, 3.sp, 'Rs.${counter.totalPay}'),
-
+                          titleUI(15.w, 0.h, 14.sp, 3.sp,
+                              'Items Selected: ${selectedItems.length}'),
+                          titleUI(15.w, 20.h, 14.sp, 3.sp,
+                              'Rs.${counter.totalPay}'),
                           Padding(
-                            padding: EdgeInsets.only(left: 260.w,top: 8.h),
+                            padding: EdgeInsets.only(left: 260.w, top: 8.h),
                             child: Icon(
                               Icons.arrow_forward_ios,
                               color: Colors.pink,
                             ),
                           ),
-
                         ],
                       ),
                     ),
                   ),
                 ),
-              )
-          ),
-
+              )),
         ],
       ),
     );
@@ -284,13 +274,9 @@ class _SelectionPageState extends State<SelectionPage> {
     final isSelected = selectedItems.contains(item);
     setState(() {
       debugPrint(isSelected.toString());
-      isSelected
-          ? selectedItems.remove(item)
-          : selectedItems.add(item);
+      isSelected ? selectedItems.remove(item) : selectedItems.add(item);
       debugPrint(selectedItems.toString());
       counter.calculateTotal(selectedItems);
     });
   }
-
-
 }

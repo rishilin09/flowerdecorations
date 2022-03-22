@@ -1,37 +1,30 @@
 // ignore_for_file: use_key_in_widget_constructors
 
-import 'package:flowerdecorations/Screens/selection_page.dart';
 import 'package:flowerdecorations/project_imports.dart';
 
-import '../Shared_Widgets/image_data.dart';
-
 class HomePage extends StatefulWidget {
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-
   final AuthService _auth = AuthService();
   final imageData = ImageDataInfo();
 
-  final List<Map<String,dynamic>> servicesList = [
-    {'occasion':'Wedding', 'image':ImageStrings.wedding},
-    {'occasion':'Religious Occasions', 'image':ImageStrings.temple},
-    {'occasion':'Home Occasions', 'image':ImageStrings.home},
-    {'occasion':'Baby Shower', 'image':ImageStrings.babyShower},
-    {'occasion':'Cars', 'image':ImageStrings.car},
-    {'occasion':'Others', 'image':ImageStrings.others}
+  final List<Map<String, dynamic>> servicesList = [
+    {'occasion': 'Wedding', 'image': ImageStrings.wedding},
+    {'occasion': 'Religious Occasions', 'image': ImageStrings.temple},
+    {'occasion': 'Home Occasions', 'image': ImageStrings.home},
+    {'occasion': 'Baby Shower', 'image': ImageStrings.babyShower},
+    {'occasion': 'Cars', 'image': ImageStrings.car},
+    {'occasion': 'Others', 'image': ImageStrings.others}
   ];
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Stack(
         children: <Widget>[
-
           ///Logo and Background
           homeLogo(),
 
@@ -42,7 +35,6 @@ class _HomePageState extends State<HomePage> {
 
           ///Services List
           services()
-
         ],
       ),
     );
@@ -137,11 +129,11 @@ class _HomePageState extends State<HomePage> {
       ),
       child: Stack(
         children: <Widget>[
-
           Align(
             alignment: Alignment.center,
             child: Padding(
-              padding: EdgeInsets.only(top: 18.h),//EdgeInsets.fromLTRB(15.w, 108.h, 13.w, 229.h),
+              padding: EdgeInsets.only(
+                  top: 18.h), //EdgeInsets.fromLTRB(15.w, 108.h, 13.w, 229.h),
               child: SvgPicture.asset(
                 ImageStrings.splashLogo,
                 width: 166.w,
@@ -150,11 +142,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-
           titleUI(200.w, 90.h, 16.sp, 4.sp, Strings.flower),
-
           titleUI(160.w, 110.h, 16.sp, 4.sp, Strings.decoration),
-
         ],
       ),
     );
@@ -167,24 +156,20 @@ class _HomePageState extends State<HomePage> {
           itemCount: servicesList.length,
           scrollDirection: Axis.vertical,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 12.h,
-            crossAxisSpacing: 10.w
-          ),
+              crossAxisCount: 2, mainAxisSpacing: 12.h, crossAxisSpacing: 10.w),
           itemBuilder: (context, index) {
             final List<Map<String, dynamic>> imageList =
-            occasionSelection(imageData, servicesList[index]['occasion']);
+                occasionSelection(imageData, servicesList[index]['occasion']);
             return Card(
               child: Theme(
-                data: ThemeData(
-                  fontFamily: 'Ubuntu'
-                ),
+                data: ThemeData(fontFamily: 'Ubuntu'),
                 child: GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SelectionProvider(items: imageList),
+                        builder: (context) =>
+                            SelectionProvider(items: imageList),
                         settings: RouteSettings(
                           arguments: servicesList[index],
                         ),
@@ -199,23 +184,19 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                           height: 100.h,
                           decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(servicesList[index]['image']),
-                              //fit: BoxFit.fill
-                            )
-                          ),
+                              image: DecorationImage(
+                            image: AssetImage(servicesList[index]['image']),
+                            //fit: BoxFit.fill
+                          )),
                         ),
                       ),
-                      
                       Text(servicesList[index]['occasion'])
-
                     ],
                   ),
                 ),
               ),
             );
-          }
-      ),
+          }),
     );
   }
 
@@ -261,5 +242,4 @@ class _HomePageState extends State<HomePage> {
     }
     return redirectList;
   }
-
 }

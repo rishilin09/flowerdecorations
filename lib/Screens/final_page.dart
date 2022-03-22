@@ -1,9 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
-
 import 'package:flowerdecorations/project_imports.dart';
 import 'package:telephony/telephony.dart';
-
 
 class FinalPage extends StatelessWidget {
   @override
@@ -59,7 +57,7 @@ class FinalPage extends StatelessWidget {
 
                     titleUI(52.w, 420.h, 25.sp, 4.sp, Strings.downloadInvoice),
 
-                    downloadButton(context,invoice)
+                    downloadButton(context, invoice)
                   ],
                 ),
               ),
@@ -68,44 +66,6 @@ class FinalPage extends StatelessWidget {
             return Loading();
           }
         });
-
-    // return Scaffold(
-    //   body: Container(
-    //     width: ScreenUtil().screenWidth,
-    //     height: ScreenUtil().screenHeight,
-    //     decoration: BoxDecoration(
-    //
-    //         image: DecorationImage(
-    //             fit: BoxFit.cover,
-    //             colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.srcOver),
-    //             image: AssetImage(ImageStrings.finalBG)
-    //         ),
-    //     ),
-    //     child: Stack(
-    //       children: <Widget>[
-    //
-    //         titleUI(20.w, 110.h, 25.sp, 4.sp, Strings.successOrder),
-    //
-    //         //SVG Image
-    //         Align(
-    //           alignment: Alignment.topCenter,
-    //           child: Padding(
-    //             padding: EdgeInsets.only(top: 220.h),
-    //             child: SizedBox(
-    //               width: 150.w,
-    //               height: 160.h,
-    //               child: SvgPicture.asset(ImageStrings.confirmedImg),
-    //             ),
-    //           ),
-    //         ),
-    //
-    //         titleUI(52.w, 420.h, 25.sp, 4.sp, Strings.downloadInvoice),
-    //
-    //         downloadButton()
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 
   ///Invoice Download
@@ -120,7 +80,8 @@ class FinalPage extends StatelessWidget {
           child: ElevatedButton.icon(
             onPressed: () async {
               final Telephony telephony = Telephony.instance;
-              final String message = messageBuild(invoice.userdata,invoice.selectedItems);
+              final String message =
+                  messageBuild(invoice.userdata, invoice.selectedItems);
               telephony.sendSms(
                   to: "7021058163", message: message, isMultipart: true);
               final pdfFile = await PdfInvoice.generate(invoice);
@@ -144,11 +105,11 @@ class FinalPage extends StatelessWidget {
     final customer = 'Customer ${userdata.fullName}has placed order for\n';
     final String itemTitles = itemMessage(selectedItems.selectedItems);
     final total = '\nand total will be Rs.${selectedItems.total}';
-    message += customer+itemTitles+total;
+    message += customer + itemTitles + total;
     return message;
   }
 
-  String itemMessage(data){
+  String itemMessage(data) {
     List itemTitle = [];
     String itemMsg = '';
     for (var item in data) {
