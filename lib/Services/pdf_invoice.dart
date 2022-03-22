@@ -76,7 +76,7 @@ class PdfInvoice {
       pageTheme: _buildTheme(
           dateTime, invoiceNumber, paymentMethod, PdfPageFormat.a4, myTheme),
       build: (context) => [
-        pw.Text(Strings.title,
+        pw.Text(title,
             style: pw.TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
         pw.SizedBox(height: 1.0 * PdfPageFormat.cm),
         buildUserDetails(userData, qrImg),

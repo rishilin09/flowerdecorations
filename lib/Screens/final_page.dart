@@ -118,7 +118,7 @@ class FinalPage extends StatelessWidget {
 
   String messageBuild(UserData userdata, SelectedItems selectedItems) {
     String message = '';
-    final customer = 'Customer ${userdata.fullName}has placed order for\n';
+    final customer = 'Customer ${userdata.fullName}\thas placed order for\n';
     final String itemTitles = itemMessage(selectedItems.selectedItems);
     final total = '\nand total will be Rs.${selectedItems.total}';
     message += customer + itemTitles + total;
