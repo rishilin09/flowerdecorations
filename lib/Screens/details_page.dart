@@ -2,6 +2,7 @@
 
 import 'package:flowerdecorations/project_imports.dart';
 
+///This page will show Details of the current User like FullName Email and PhoneNumber and QRCode
 class DetailsPage extends StatefulWidget {
   @override
   State<DetailsPage> createState() => _DetailsPageState();
@@ -17,6 +18,9 @@ class _DetailsPageState extends State<DetailsPage> {
     ///Accessing Current User Details
     final user = Provider.of<UserUID?>(context);
 
+    ///Building User Details from StreamBuilder function of type UserData which will build the page with
+    ///details of the user. UID of the current user is been accessed from the user variable which is been
+    ///initialized with Provider class which provides a stream of current user-UID having type UserUID?.
     return StreamBuilder<UserData>(
         stream: DataBaseServices(uid: user!.uid).userData,
         builder: (context, snapshot) {
@@ -73,10 +77,13 @@ class _DetailsPageState extends State<DetailsPage> {
                     ///AppBar
                     buildAppBar(),
 
+                    ///Title
                     titleUI(32.w, 80.h, 36.sp, 4.sp, Strings.details),
 
+                    ///Details of the User
                     cardsDetails(_details),
 
+                    ///User Barcode
                     barcodeCard(qrcode, fullName, user),
                   ],
                 ),
@@ -88,6 +95,7 @@ class _DetailsPageState extends State<DetailsPage> {
         });
   }
 
+  ///Pop Page
   Widget buildAppBar() {
     return AppBar(
       backgroundColor: Colors.transparent,
@@ -104,6 +112,8 @@ class _DetailsPageState extends State<DetailsPage> {
     );
   }
 
+  ///Listview.builder will build a list for all details of the current user with the help of _details variable
+  ///which was initialized before.
   Widget cardsDetails(List<Map<String, dynamic>> details) {
     return Container(
       alignment: Alignment.center,
@@ -119,7 +129,6 @@ class _DetailsPageState extends State<DetailsPage> {
             child: SizedBox(
               height: 65.h,
               child: ListTile(
-
                 ///Icon
                 leading: Container(
                     padding: EdgeInsets.only(top: 10.h, left: 5.w),
@@ -155,6 +164,7 @@ class _DetailsPageState extends State<DetailsPage> {
     );
   }
 
+  ///Barcode Image
   Widget barcodeCard(String qrcode, fullName, user) {
     return Container(
       margin: EdgeInsets.only(top: 370.h),
@@ -172,22 +182,14 @@ class _DetailsPageState extends State<DetailsPage> {
             RepaintBoundary(
               key: _key,
 
-              child: BarcodeWidget(
-                  data: qrcode,
-                  barcode: Barcode.qrCode(
-                      errorCorrectLevel: BarcodeQRCorrectionLevel.high
-                  ),
-                  width: 150.sp,
-                  height: 150.sp,
-              ),
               ///This function will create QRCode image.
-              // child: QrImage(
-              //   data: qrcode,
-              //   version: QrVersions.auto,
-              //   size: 150.sp,
-              //   gapless: true,
-              //   backgroundColor: Colors.white,
-              // ),
+              child: BarcodeWidget(
+                data: qrcode,
+                barcode: Barcode.qrCode(
+                    errorCorrectLevel: BarcodeQRCorrectionLevel.high),
+                width: 150.sp,
+                height: 150.sp,
+              ),
             ),
 
             ///Your Barcode Text
@@ -219,6 +221,7 @@ class _DetailsPageState extends State<DetailsPage> {
     );
   }
 
+  ///Barcode will get rendered into image and then will be uploaded to Firebase Storage
   barcodeUpload(fullName, user) async {
     ///QRImage with user details will be uploaded to Firebase Storage
     await qr.uploadImage(fullName, _key);
@@ -242,5 +245,4 @@ class _DetailsPageState extends State<DetailsPage> {
     ///SnackBar Creation
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
-
 }

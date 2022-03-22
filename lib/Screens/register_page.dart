@@ -3,6 +3,7 @@
 import 'package:flowerdecorations/project_imports.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
+///This Class will show RegisterPage for users if account is not been registered
 class RegisterPage extends StatefulWidget {
   final Function toggleView;
 
@@ -27,6 +28,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    ///If loading yields to be true then it will be redirected to Loading function in Loading.dart file
+    ///else if it is false then Login Page will be displayed. This will happen when user has inputted
+    ///some wrong values and it doesn't get authorized.
     return loading
         ? Loading()
         : Scaffold(
@@ -42,7 +46,10 @@ class _RegisterPageState extends State<RegisterPage> {
               child: SingleChildScrollView(
                 child: Stack(
                   children: <Widget>[
+                    ///PageUI
                     titleUI(31.w, 83.h, 36.sp, 4.sp, Strings.register),
+
+                    ///Register Form
                     Form(key: _formkey, child: registerBuild()),
                   ],
                 ),
@@ -51,6 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
           );
   }
 
+  ///Building Registration form
   Widget registerBuild() {
     return Stack(
       children: <Widget>[
@@ -234,6 +242,17 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
+  ///Registration Process
+  ///This function will validate all the TextFormFields with help of '_formkey.currentState!.validate()'.
+  ///Since we declared the key globally for all the FormFields it will check the currentState of each and
+  ///every field combined. If the validation comes out to be true then state of loading variable will be
+  ///changed to True and the registration process will be carried out by calling '_auth.registerWithEmailAndPassword'
+  ///function which takes email,password,fullName and URL as the parameters. Since it is a await function it
+  ///will wait for the process to be completed to proceed further. If the result of the function is null then
+  ///error message will be thrown and the state of the loading will be set to false again. If it is not null
+  ///then user will get register in FireBase and the 'AuthService().user' in main.dart file will start to
+  ///stream UserUID object values which contains UID of the user. Wrapper() widget will catch the provided
+  ///values and since user is not null it will redirect to HomePage() widget.
   registerProcess() async {
     if (_formkey.currentState!.validate()) {
       setState(() {

@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 
+///This class will contain all the colors required during building project
 class ProjectColors {
-
   ProjectColors._();
 
   static const loginRegisterButton = Color.fromRGBO(246, 122, 73, 1);
@@ -11,17 +10,17 @@ class ProjectColors {
   static const formFieldBordersActive = Color.fromRGBO(255, 111, 69, 1);
   static const primaryT = Color.fromRGBO(217, 25, 25, 0.81);
   static const secondaryT = Color.fromRGBO(222, 179, 67, 0.81);
-  static const primary = Colors.deepOrange;//(217, 25, 25, 1);
-  static const secondary = Colors.red;//(222, 179, 67, 1);
+  static const primary = Colors.deepOrange; //(217, 25, 25, 1);
+  static const secondary = Colors.red; //(222, 179, 67, 1);
 
 }
 
+///This class will contain all the image strings required during building project
 class ImageStrings {
   ImageStrings._();
 
   static String splashLogo = 'assets/SVG/SplashScreenLogo.svg';
   static String confirmedImg = 'assets/SVG/confirmed.svg';
-
   static String splashBG = 'assets/JPG/Splash_Screen_BG.jpg';
   static String loginBG = 'assets/JPG/Login_Page_BG.jpg';
   static String registerBG = 'assets/JPG/Register_Page_BG.jpg';
@@ -39,10 +38,9 @@ class ImageStrings {
   static String babyShower = 'assets/PNG/baby-shower.png';
   static String car = 'assets/PNG/car.png';
   static String others = 'assets/PNG/others.png';
-
-
 }
 
+///This class will contain all the string values required during building project
 class Strings {
   Strings._();
 
@@ -84,11 +82,9 @@ class Strings {
   static String imgRetrieveError = "Error couldn't load images";
   static String add = 'Add';
   static String remove = 'Remove';
-
-
 }
 
-
+///This class will contain all the icons required during building project
 class ProjectIcons {
   ProjectIcons._();
 
@@ -102,11 +98,11 @@ class ProjectIcons {
   static const detailsIcon = Icon(Icons.people_alt_rounded);
   static const logOutIcon = Icon(Icons.logout);
   static const uploadIcon = Icon(Icons.arrow_circle_up);
-  static const addIcon =  Icon(Icons.add_circle_outline);
+  static const addIcon = Icon(Icons.add_circle_outline);
   static const removeIcon = Icon(Icons.remove_circle_outline);
-
 }
 
+///Gradient with Transparency value
 LinearGradient gradientLayoutT = const LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
@@ -115,6 +111,7 @@ LinearGradient gradientLayoutT = const LinearGradient(
       ProjectColors.secondaryT,
     ]);
 
+///Gradient without Transparency value
 LinearGradient gradientLayout = const LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,

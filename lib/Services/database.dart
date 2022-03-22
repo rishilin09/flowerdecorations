@@ -1,4 +1,3 @@
-
 import 'package:flowerdecorations/project_imports.dart';
 
 class DataBaseServices {
@@ -11,8 +10,7 @@ class DataBaseServices {
   ///FirebaseFirestore.instance.collection('users'); will generate a collection named 'users'
   ///where all the User UID in the form of documents will be added if not present already.
   final CollectionReference<Map<String, dynamic>> userCollection =
-  FirebaseFirestore.instance.collection('users');
-
+      FirebaseFirestore.instance.collection('users');
 
   ///User data will be added in new doc where doc is UID of the newly registered user
   ///Values will be in the form of Map Datatype provided from RegistrationPage
@@ -57,6 +55,4 @@ class DataBaseServices {
         phoneNumber: snapshot.get('Phone-Number'),
         url: snapshot.get('URL'));
   }
-
-
 }

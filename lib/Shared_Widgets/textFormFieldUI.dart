@@ -11,14 +11,12 @@ InputDecoration textInputDecoration = const InputDecoration(
       width: 2.0,
     ),
   ),
-
   border: OutlineInputBorder(
     borderRadius: BorderRadius.zero, //circular(10.0),
   ),
-
   focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(
-        color: ProjectColors.formFieldBordersFocused,
-        width: 3.0,
-      )),
+    color: ProjectColors.formFieldBordersFocused,
+    width: 3.0,
+  )),
 );

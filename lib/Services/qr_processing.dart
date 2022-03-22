@@ -1,4 +1,3 @@
-
 import 'dart:ui' as ui;
 import 'package:flowerdecorations/project_imports.dart';
 
@@ -12,7 +11,7 @@ class QrProcessing {
   Future<void> uploadImage(String path, key) async {
     final _key = key;
     final RenderRepaintBoundary boundary =
-    _key?.currentContext?.findRenderObject() as RenderRepaintBoundary;
+        _key?.currentContext?.findRenderObject() as RenderRepaintBoundary;
     final ui.Image image = await boundary.toImage();
     ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
     Uint8List? pngBytes = byteData?.buffer.asUint8List();
@@ -20,18 +19,18 @@ class QrProcessing {
     try {
       await reference
           .ref(
-          'userQRCodes/$path-qr.png') //eg :- userQRCodes/Rishikesh Lingayat-qr.png
+              'userQRCodes/$path-qr.png') //eg :- userQRCodes/Rishikesh Lingayat-qr.png
           .putData(pngBytes!);
     } on FirebaseException {
       // e.g, e.code == 'canceled'
-     return;
+      return;
     }
   }
 
   Future<String> qrURL(String path) async {
     try {
       String downloadURL =
-      await reference.ref('userQRCodes/$path-qr.png').getDownloadURL();
+          await reference.ref('userQRCodes/$path-qr.png').getDownloadURL();
       return downloadURL;
     } on FirebaseException {
       return 'No QR Image found';

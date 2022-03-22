@@ -1,3 +1,5 @@
+///This file will contain all the occasion data required for building project
+
 class OccasionImgTitle {
   OccasionImgTitle._();
 
@@ -38,54 +40,78 @@ class OccasionImgTitle {
   static String ro_4title = 'Religious Occasion Design-4';
   static String ro_5title = 'Religious Occasion Design-5';
   static String ro_6title = 'Religious Occasion Design-6';
-
 }
 
 class OccasionImgDescription {
   OccasionImgDescription._();
 
-  static String w_1desc = 'Wedding platform decorated with various colorful flowers and lily strings dropping from above';
-  static String w_2desc = 'Background of wedding stage decorated with strings of white and yellow marigold and bouquet of flowers';
-  static String w_3desc = "Background of wedding stage is designed with peacock pattern with bride and groom's name inscribed on it";
-  static String w_4desc = 'Background of wedding stage is designed with numerous lotus patterns';
-  static String w_5desc = 'Dome-shaped decoration of wedding platform with variety flowers';
-  static String w_6desc = 'Wedding platform decorated with red and white daisies and curtains';
-  static String w_7desc = 'Wedding platform with decorated pillars and a flower string backdrop';
-  static String w_8desc = 'Wedding platform with an arch style of decoration and bouquet';
-  static String bs_1desc = 'Swing decorated with variety of daisies and bunch of marigold strings';
-  static String bs_2desc = 'Boat-shaped decoration having white lily, marigold and rose flowers';
-  static String bs_3desc = 'Swing decorated with marigold strings and bouquet of flowers';
+  static String w_1desc =
+      'Wedding platform decorated with various colorful flowers and lily strings dropping from above';
+  static String w_2desc =
+      'Background of wedding stage decorated with strings of white and yellow marigold and bouquet of flowers';
+  static String w_3desc =
+      "Background of wedding stage is designed with peacock pattern with bride and groom's name inscribed on it";
+  static String w_4desc =
+      'Background of wedding stage is designed with numerous lotus patterns';
+  static String w_5desc =
+      'Dome-shaped decoration of wedding platform with variety flowers';
+  static String w_6desc =
+      'Wedding platform decorated with red and white daisies and curtains';
+  static String w_7desc =
+      'Wedding platform with decorated pillars and a flower string backdrop';
+  static String w_8desc =
+      'Wedding platform with an arch style of decoration and bouquet';
+  static String bs_1desc =
+      'Swing decorated with variety of daisies and bunch of marigold strings';
+  static String bs_2desc =
+      'Boat-shaped decoration having white lily, marigold and rose flowers';
+  static String bs_3desc =
+      'Swing decorated with marigold strings and bouquet of flowers';
   static String bs_4desc = "Swing decoration with baby shower accessories";
   static String bs_5desc = 'Baby shower accessories decorated with flowers';
-  static String bs_6desc = 'Swing decorated with marigold and pink rose strings and bunch of daisies';
-  static String c_1desc = 'Car decorated with design created from lily,marigold and rose strings';
-  static String c_2desc = 'Car decorated with design created from lily and rose strings';
-  static String c_3desc = 'Car decorated with design created from lily and marigold strings';
+  static String bs_6desc =
+      'Swing decorated with marigold and pink rose strings and bunch of daisies';
+  static String c_1desc =
+      'Car decorated with design created from lily,marigold and rose strings';
+  static String c_2desc =
+      'Car decorated with design created from lily and rose strings';
+  static String c_3desc =
+      'Car decorated with design created from lily and marigold strings';
   static String c_4desc = 'Car decorated with two bouquets of flowers';
-  static String c_5desc = 'Car decorated with bouquet of flowers and colorful threads';
+  static String c_5desc =
+      'Car decorated with bouquet of flowers and colorful threads';
   static String c_6desc = 'Car decorated with bouquet of violet pansies';
-  static String ho_1desc = 'Background is decorated with variety of daisies and pansies';
-  static String ho_2desc = 'An arch-like structure is built which is made up of variety of daisies,pansies and lily strings';
-  static String ho_3desc = 'An arch-like structure in the background with marigold strings for other decorations';
-  static String ho_4desc = 'A home-like structure is built with variety of flowers';
-  static String ho_5desc = 'A cube-like structure is built with various flowers with background of marigold strings';
+  static String ho_1desc =
+      'Background is decorated with variety of daisies and pansies';
+  static String ho_2desc =
+      'An arch-like structure is built which is made up of variety of daisies,pansies and lily strings';
+  static String ho_3desc =
+      'An arch-like structure in the background with marigold strings for other decorations';
+  static String ho_4desc =
+      'A home-like structure is built with variety of flowers';
+  static String ho_5desc =
+      'A cube-like structure is built with various flowers with background of marigold strings';
   static String o_1desc = 'Ganpati decoration for wedding hall';
   static String o_2desc = 'Garland of red rose flowers';
   static String o_3desc = 'Arch style decoration for different decoration';
-  static String o_4desc = 'Flower decoration for the entrance of any occasion hall';
-  static String o_5desc = 'Chandelier made up of strings of lily and roses and daisies';
+  static String o_4desc =
+      'Flower decoration for the entrance of any occasion hall';
+  static String o_5desc =
+      'Chandelier made up of strings of lily and roses and daisies';
   static String o_6desc = 'Garland of pink roses and jasmine flowers';
-  static String ro_1desc = 'Border decoration with variety of daisies and yellow and purple pansies';
-  static String ro_2desc = 'Temple decorated with various flowers and lily strings';
-  static String ro_3desc = 'Temple decorated with purple pansies and white, yellow and pink marigold flowers';
-  static String ro_4desc = 'An arch-like decoration and marigold strings in the background';
+  static String ro_1desc =
+      'Border decoration with variety of daisies and yellow and purple pansies';
+  static String ro_2desc =
+      'Temple decorated with various flowers and lily strings';
+  static String ro_3desc =
+      'Temple decorated with purple pansies and white, yellow and pink marigold flowers';
+  static String ro_4desc =
+      'An arch-like decoration and marigold strings in the background';
   static String ro_5desc = 'Entrance decoration with wisteria flowers';
   static String ro_6desc = 'Decoration with variety of daisy flowers';
-
 }
 
 class OccasionImgUrl {
-
   OccasionImgUrl._();
 
   static String w_1url = 'assets/images/Wedding/W_1.jpg';
@@ -125,11 +151,9 @@ class OccasionImgUrl {
   static String ro_4url = 'assets/images/Religious Occasions/RO_4.jpg';
   static String ro_5url = 'assets/images/Religious Occasions/RO_5.jpg';
   static String ro_6url = 'assets/images/Religious Occasions/RO_6.jpg';
-
 }
 
 class OccasionImgPrice {
-
   OccasionImgPrice._();
 
   static String w_1price = '1500';
@@ -169,5 +193,4 @@ class OccasionImgPrice {
   static String ro_4price = '1400';
   static String ro_5price = '1600';
   static String ro_6price = '1100';
-
 }

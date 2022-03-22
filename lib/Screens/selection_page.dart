@@ -2,6 +2,9 @@
 
 import 'package:flowerdecorations/project_imports.dart';
 
+///This class will provide values for the SelectionPage class using ChangeNotifierProvider function
+///which creates a provider of class PayLogic() in lib->Services->pay_logic.dart file
+/// where all calculateTotal() method and total variable are declared.
 class SelectionProvider extends StatelessWidget {
   SelectionProvider({required this.items});
 
@@ -16,6 +19,14 @@ class SelectionProvider extends StatelessWidget {
   }
 }
 
+///SelectionProvider ==> Parent providing class for SelectionPage
+///SelectionPage ==> SelectionProvider's Child that will catch provided values
+
+///This class will catch the provided values from ChangeNotifierProvider which is
+///defined is SelectionProvider class.
+///This class will let users select items and corresponding to that action
+///total will get change everytime.
+///Changes in value will be seen in the ElevatedButton Widget
 class SelectionPage extends StatefulWidget {
   SelectionPage({required this.items});
 
@@ -30,6 +41,9 @@ class _SelectionPageState extends State<SelectionPage> {
 
   @override
   Widget build(BuildContext context) {
+    ///This variable will help to determine which option was selected
+    ///in the HomePage by passing the settings and arguments parameters while
+    ///navigating from HomePage to SelectionPage
     final selection =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     final counter = Provider.of<PayLogic>(context);
@@ -79,8 +93,13 @@ class _SelectionPageState extends State<SelectionPage> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
+          ///Title and Image
           buildDescription(occasion, occasionImg),
+
+          ///Appbar
           buildAppBar(),
+
+          ///Occasion Items
           Container(
             alignment: Alignment.center,
             padding: EdgeInsets.only(top: 290.h),
@@ -166,6 +185,9 @@ class _SelectionPageState extends State<SelectionPage> {
                   );
                 }),
           ),
+
+          ///Pay Button :- This Button will be visible only when selectedItems list will not be empty
+          ///and will show the updated total value.
           Visibility(
               visible: selectedItems.isNotEmpty,
               child: Padding(
@@ -193,7 +215,6 @@ class _SelectionPageState extends State<SelectionPage> {
                                 settings: RouteSettings(
                                     arguments: SelectedItems(
                                         selectedItems: selectedItems,
-                                        noOfItems: selectedItems.length,
                                         total: counter.totalPay,
                                         occasion: occasion))));
                       },
@@ -221,6 +242,7 @@ class _SelectionPageState extends State<SelectionPage> {
     );
   }
 
+  ///Title and Image
   Widget buildDescription(String occasion, String occasionImg) {
     return Container(
       height: 270.h,
@@ -251,6 +273,7 @@ class _SelectionPageState extends State<SelectionPage> {
     );
   }
 
+  ///Appbar
   Widget buildAppBar() {
     return AppBar(
       backgroundColor: Colors.transparent,
@@ -270,12 +293,12 @@ class _SelectionPageState extends State<SelectionPage> {
     );
   }
 
+  ///This Function will set the state of the build method everytime when a add button
+  ///from the list of occasion will get pressed
   void onSelected(item, PayLogic counter) {
     final isSelected = selectedItems.contains(item);
     setState(() {
-      debugPrint(isSelected.toString());
       isSelected ? selectedItems.remove(item) : selectedItems.add(item);
-      debugPrint(selectedItems.toString());
       counter.calculateTotal(selectedItems);
     });
   }

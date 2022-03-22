@@ -26,8 +26,6 @@ class PdfInvoice {
     final List<Map<String, dynamic>> items =
         invoice.selectedItems.selectedItems;
 
-    final int noOfItems = invoice.selectedItems.noOfItems;
-
     final String occasion = invoice.selectedItems.occasion;
 
     ///Formatting the date and storing into String dateTime variable

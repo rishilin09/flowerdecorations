@@ -3,6 +3,7 @@
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:flowerdecorations/project_imports.dart';
 
+///This Class will show LoginPage for users if account is already been registered
 class LoginPage extends StatefulWidget {
   final Function toggleView;
 
@@ -31,6 +32,9 @@ class _LoginPageState extends State<LoginPage> {
     String connectionError =
         error.isNotEmpty ? error.substring(midPoint, error.length) : '';
 
+    ///If loading yields to be true then it will be redirected to Loading function in Loading.dart file
+    ///else if it is false then Login Page will be displayed. This will happen when user has inputted
+    ///some wrong values and it doesn't get authorized.
     return loading
         ? Loading()
         : Scaffold(

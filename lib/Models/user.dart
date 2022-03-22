@@ -14,7 +14,7 @@ class UserData {
 
   UserData(
       {required this.fullName,
-        required this.email,
-        required this.phoneNumber,
-        required this.url});
+      required this.email,
+      required this.phoneNumber,
+      required this.url});
 }

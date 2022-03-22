@@ -2,6 +2,8 @@
 
 import 'package:flowerdecorations/project_imports.dart';
 
+///This class will be a dummy payment gateway page where user will select
+///any of the desired payment method
 class TransactionPage extends StatelessWidget {
   final List<Map<String, dynamic>> paymentMethods = [
     {'method': 'Net Banking', 'image': ImageStrings.netBanking},
@@ -27,7 +29,10 @@ class TransactionPage extends StatelessWidget {
                 image: AssetImage(ImageStrings.transactionBG))),
         child: Stack(
           children: <Widget>[
+            ///Title
             titleUI(159.w, 51.h, 25.sp, 4.sp, Strings.pay),
+
+            ///Pay and total texts
             Align(
               alignment: Alignment.topCenter,
               child: Padding(
@@ -50,8 +55,14 @@ class TransactionPage extends StatelessWidget {
                 ]),
               ),
             ),
+
+            ///select payment method text
             titleUI(17.w, 176.h, 18.sp, 4.sp, Strings.selectPayMethod),
+
+            ///Appbar
             buildAppBar(context),
+
+            ///List of Payment Methods
             payMethod(items),
           ],
         ),
@@ -59,6 +70,7 @@ class TransactionPage extends StatelessWidget {
     );
   }
 
+  ///List of Payment Methods
   Widget payMethod(SelectedItems items) {
     return Container(
       alignment: Alignment.center,
@@ -84,7 +96,7 @@ class TransactionPage extends StatelessWidget {
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.h),
                     onTap: () {
-                      debugPrint(items.selectedItems.toString());
+                      ///Navigation to FinalPage() with selected payment method and selectedItems as a argument,
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
@@ -124,6 +136,7 @@ class TransactionPage extends StatelessWidget {
     );
   }
 
+  ///Appbar
   Widget buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,

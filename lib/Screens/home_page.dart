@@ -2,12 +2,14 @@
 
 import 'package:flowerdecorations/project_imports.dart';
 
+///This class is the HomePage for the Project
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  ///Declarations and Initializations
   final AuthService _auth = AuthService();
   final imageData = ImageDataInfo();
 
@@ -31,6 +33,7 @@ class _HomePageState extends State<HomePage> {
           ///HomeBar
           homeBar(),
 
+          ///Title
           titleUI(18.w, 197.h, 24.sp, 4.sp, Strings.services),
 
           ///Services List
@@ -50,7 +53,6 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
         elevation: 0.0,
         actions: [
-          ///Navigation to DetailsPage
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -119,6 +121,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  ///HomeLogo Design
   Widget homeLogo() {
     return Container(
       height: 180.h,
@@ -149,9 +152,13 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  ///Services design function
   Widget services() {
+    ///List of Services
     return Padding(
       padding: EdgeInsets.only(top: 230.h),
+
+      ///To build GridView of Services
       child: GridView.builder(
           itemCount: servicesList.length,
           scrollDirection: Axis.vertical,
@@ -165,6 +172,7 @@ class _HomePageState extends State<HomePage> {
                 data: ThemeData(fontFamily: 'Ubuntu'),
                 child: GestureDetector(
                   onTap: () {
+                    ///Navigation to SelectionProvider() with selected grid as a argument,
                     Navigator.push(
                       context,
                       MaterialPageRoute(
