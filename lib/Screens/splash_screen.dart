@@ -38,40 +38,40 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      width: ScreenUtil().screenWidth,
-      height: ScreenUtil().screenHeight,
-      decoration: BoxDecoration(
-          image: DecorationImage(
-        fit: BoxFit.cover,
-        colorFilter:
-            ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.srcOver),
-        image: AssetImage(ImageStrings.splashBG),
-      )),
-      child: Stack(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(
-                top: 108.h), //EdgeInsets.fromLTRB(15.w, 108.h, 13.w, 229.h),
-            child: SvgPicture.asset(
-              ImageStrings.splashLogo,
-              width: 350.w,
-              height: 300.h,
-              color: Colors.black,
-            ),
-          ),
-          titleUI(200.w, 251.h, 30.sp, 4.sp, Strings.flower),
-          titleUI(125.w, 285.h, 30.sp, 4.sp, Strings.decoration),
-          Center(
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(51.w, 425.h, 52.w, 110.h),
-              child: SpinKitThreeInOut(
-                color: Colors.white,
-                size: 50.w,
+          width: ScreenUtil().screenWidth,
+          height: ScreenUtil().screenHeight,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+            fit: BoxFit.cover,
+            colorFilter:
+                ColorFilter.mode(Colors.black.withOpacity(0.5), BlendMode.srcOver),
+                image: AssetImage(ImageStrings.splashBG),
+              )),
+          child: Stack(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(
+                    top: 108.h, left: 15.w), //EdgeInsets.fromLTRB(15.w, 108.h, 13.w, 229.h),
+                child: SvgPicture.asset(
+                  ImageStrings.splashLogo,
+                  width: 330.w,
+                  height: 305.h,
+                  color: Colors.black,
+                ),
+              ),
+            titleUI(200.w, 251.h, 30.sp, 4.sp, Strings.flower),
+            titleUI(125.w, 285.h, 30.sp, 4.sp, Strings.decoration),
+            Center(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(51.w, 425.h, 52.w, 110.h),
+                child: SpinKitThreeInOut(
+                  color: Colors.white,
+                  size: 50.w,
+                ),
               ),
             ),
-          ),
-        ],
-      ),
-    ));
+          ],
+        ),
+      ));
   }
 }
