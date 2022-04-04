@@ -22,7 +22,6 @@ class QrProcessing {
               'userQRCodes/$path-qr.png') //eg :- userQRCodes/Rishikesh Lingayat-qr.png
           .putData(pngBytes!);
     } on FirebaseException {
-      // e.g, e.code == 'canceled'
       return;
     }
   }

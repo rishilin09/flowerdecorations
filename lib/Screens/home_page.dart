@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
             alignment: Alignment.center,
             child: Padding(
               padding: EdgeInsets.only(
-                  top: 18.h,left: 15.w), //EdgeInsets.fromLTRB(15.w, 108.h, 13.w, 229.h),
+                  top: 18.h,left: 15.w),
               child: SvgPicture.asset(
                 ImageStrings.splashLogo,
                 width: 166.w,

@@ -51,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(
-                    top: 108.h, left: 15.w), //EdgeInsets.fromLTRB(15.w, 108.h, 13.w, 229.h),
+                    top: 108.h, left: 15.w),
                 child: SvgPicture.asset(
                   ImageStrings.splashLogo,
                   width: 330.w,

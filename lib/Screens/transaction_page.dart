@@ -37,7 +37,7 @@ class TransactionPage extends StatelessWidget {
               alignment: Alignment.topCenter,
               child: Padding(
                 padding:
-                    EdgeInsets.only(top: 100.h), //EdgeInsets.fromLTRB(l,t,r,b),
+                    EdgeInsets.only(top: 100.h),
                 child: Stack(children: [
                   Text(
                     'Rs.$total',

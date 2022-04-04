@@ -17,7 +17,7 @@ Future<void> main() async {
 ///and ChangeNotifierProvider.StreamProvider will basically provide a stream of changes for the user
 ///like Signing In or Signing Out and will rebuild the whole app.
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  /// This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

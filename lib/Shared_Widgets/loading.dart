@@ -20,5 +20,3 @@ class Loading extends StatelessWidget {
   }
 }
 
-// static const primary = Color.fromRGBO(217, 25, 25, 1);
-// static const secondary = Color.fromRGBO(222, 179, 67, 1);
